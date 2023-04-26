@@ -16,6 +16,8 @@ import { BaseDatosService } from '../basedatos.service';
 export class LoginPage {
   email: string = '';
   password: string = '';
+  datos = {};
+
 
   constructor(public navCtrl: NavController, public BaseDatosService: BaseDatosService) { }
 
@@ -23,7 +25,11 @@ export class LoginPage {
     // Lógica para enviar el formulario
     console.log('Email: ' + this.email);
     console.log('Password: ' + this.password);
-    var respuesta = this.BaseDatosService.insertarDatos(this.email)
+    this.datos = {
+      correo: this.email,
+      password: this.password
+    }
+    var respuesta = this.BaseDatosService.insertarDatos(JSON.stringify(this.datos));
     // var respuesta = this.BaseDatosService.getDatos();
 
     async function ejecutar() {

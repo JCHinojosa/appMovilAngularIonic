@@ -15,7 +15,7 @@ export class BaseDatosService {
   }
 
   async insertarDatos(datos: any) {
-    const respuesta = await axios.post(`${this.apiUrl}/datos`, datos);
+    const respuesta = await axios.post(`${this.apiUrl}`, datos);
     return respuesta.data;
   }
 
